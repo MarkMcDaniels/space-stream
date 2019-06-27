@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import './SpaceStream.css';
+import classes from './SpaceStream.css';
+
+import Layout from '../Layout/Layout';
 
 class SpaceStream extends Component {
 
     render(){
         return(
-            <div className="Test">
-                I'm in SpaceStream.
+            <div className={classes.Test}>
+                <Layout />
             </div>
         );
     }
