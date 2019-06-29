@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Navigation from '../../components/UI/Navigation/Navigation';
 import { Switch, Route } from 'react-router-dom';
+import Spacex from '../../components/Spacex/Spacex';
+import Nasa from '../../components/Nasa/Nasa';
 
 import classes from './Content.css';
 
@@ -16,13 +18,14 @@ class Content extends Component {
                     <p>Upcoming:</p>
                     <Navigation navBar="Content" navItems={this.props.navContent} />
                 </div>
-                {/*
+
                 <Switch>
-                    <Route path='/' component={Nasa} />
+                    
                     <Route path='/nasa-schedule' component={Nasa} />
                     <Route path="/spacex-schedule" component={Spacex} />
+                    <Route path='/' component={Nasa} />
+
                 </Switch>
-                */}
             </div>
         );
     }
