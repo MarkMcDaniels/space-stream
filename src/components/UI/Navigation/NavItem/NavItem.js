@@ -1,7 +1,7 @@
 import React from "react";
 
 const navItem = (props) => (
-    <li>item</li>
+    <li><a href={props.link}>{props.name}</a></li>
 );
 
 export default navItem;
