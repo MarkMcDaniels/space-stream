@@ -1,0 +1,141 @@
+.Content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightskyblue;
+    color: white;
+    min-height: 60px;
+    height: auto;
+    padding-left: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-right: 2px solid lightskyblue;
+    flex-wrap: wrap;
+}
+
+strong {
+    color: white;
+}
+
+
+
+.Spacex {
+    display: flex;
+    flex-direction: row;
+    height: 153px;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0px;
+    margin: 5px 4px 2px 4px;
+}
+.Card {
+    flex: 1 1 auto;
+}
+
+.Description {
+    /*
+    background-color: steelblue;
+    height: 153px;
+    */
+    background-color: steelblue;
+    width: 60%;
+    flex-grow: 1;
+    margin-left: 2%;
+    padding: 4px;
+    overflow: hidden;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+.Spacex img {
+    width: auto;
+    height: 153px;
+
+}
+
+.Description p {
+    /*
+    font-size: 0.7rem;
+    display: flex;
+    width: 200px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    padding-right: 4px;
+    padding-left: 4px;
+    flex-wrap: wrap;
+    color: silver;
+    */
+    padding: 0px;
+    font-size: 0.8rem;
+    text-align: left;
+    margin: 2px;
+    color: silver;
+}
+
+.Description_layout {
+    
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.Layout {
+    /*
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    justify-content: space-evenly;
+    */
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.LaunchItem {
+    display: flex;
+    min-height: 100px;
+    height: 153px;
+    border: 1px white solid;
+    margin: auto;
+    width: 90%;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.ImgSize img {
+    width: auto;
+    height: 153px;
+
+}
+
+.Upcoming {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+    /*background-color: lightskyblue;
+    color: white;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+    
+    font-size: 1rem;
+    padding-left: 2%;
+    */
+}
+
+@media screen and (min-width: 1019px){
+    
+    
+    
+    .Upcoming {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        background-color: lightskyblue;
+        color: white;
+        letter-spacing: 1px;
+        box-sizing: border-box;
+        
+        font-size: 2rem;
+    }
+}

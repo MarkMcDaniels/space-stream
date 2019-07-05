@@ -11,7 +11,6 @@ const header = (props) =>{
     return(
         <div className={classList.join(' ')}>
             <h1>Space Stream</h1>
-            <Navigation navBar="Header" navItems={props.navItems}  />
         </div>
     );
 }

@@ -1,25 +1,37 @@
 .Content {
     color: black;
     margin: auto;
-    width: 40%;
+    width: 80%;
+    /*
     border: 1px solid black;
-    
+    */
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
-.Content ul {
-    list-style: none;
-    display: inline-block;
-    
-}
 
+/*
 .Content li {
     display: inline;
+    padding: 10px;
     
 }
 
-.Nav {
-    display: flex;
-    display: row;
-    justify-content: space-around;
+*/
+
+
+@media screen and (max-width: 1019px){
+    .Content {
+        color: black;
+        margin: auto;
+        width: 90%;
+        /*
+        border: 1px solid black;
+        */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
 }

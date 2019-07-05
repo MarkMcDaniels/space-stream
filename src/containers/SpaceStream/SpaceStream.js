@@ -7,7 +7,7 @@ class SpaceStream extends Component {
 
     render(){
         return(
-            <div className={classes.Test}>
+            <div>
                 <Layout />
             </div>
         );

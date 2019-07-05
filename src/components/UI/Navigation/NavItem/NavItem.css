@@ -1,0 +1,12 @@
+.Item {
+    padding-top: 20px;
+}
+
+
+.Active {
+    border-bottom: 3px solid #ccc;
+}
+
+.Inactive {
+    border: none;
+}
