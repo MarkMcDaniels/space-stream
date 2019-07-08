@@ -22,3 +22,9 @@
     margin: 10px;
 }
 
+@media screen and (min-width: 769px){
+    .Item {
+        font-size: 1.4rem;
+    }
+}
+

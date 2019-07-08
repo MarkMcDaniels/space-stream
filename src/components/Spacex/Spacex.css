@@ -125,10 +125,38 @@ strong {
     */
 }
 
-@media screen and (min-width: 1019px){
+@media screen and (min-width: 769px){
     
+    .Content {
+        margin-bottom: 20px;
+        border-right: 4px solid lightskyblue;
+    }
+
+    .ImgSize img {
+        width: auto;
+        height: 250px;
+    }
+    .Spacex img {
+        width: auto;
+        height: 250px;
+    }
+
+    .LaunchItem {
+        height: 250px;
+    }
     
-    
+    .Description {
+        margin-left: 3%;
+        padding-top: 20px;
+    }
+
+
+
+    .Description p {
+        font-size: 1.1rem;
+        margin: 10px;
+    }
+
     .Upcoming {
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         background-color: lightskyblue;

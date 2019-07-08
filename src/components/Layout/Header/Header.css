@@ -14,6 +14,10 @@
 		1px 1px 0 lightskyblue;
 }
 
+.Header p {
+    font-size: 1.5rem;
+}
+
 .Header ul {
     display: flex;
     justify-content: space-between;
@@ -30,5 +34,18 @@
 }
 
 .Header img {
-    width: 10%;
+    width: 80px;
+    margin-top: 10px;
+}
+
+
+@media screen and (min-width: 769px){
+    .Header p {
+        font-size: 2rem;
+    }
+
+    .Header img {
+        width: 110px;
+        margin-top: 10px;
+    }
 }

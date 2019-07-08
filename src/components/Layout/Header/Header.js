@@ -8,13 +8,13 @@ import classes from './Header.css';
 
 const header = (props) =>{
     
-    let styles = {width: '60%', marginTop: '10px'};
+    //let styles = {width: '40%', marginTop: '10px'};
 
     let classList = [classes.Header];
     return(
         <div className={classList.join(' ')}>
-            <NavLink  to="/"><img src={LaunchLogo} alt="Launch spot logo" style={styles}/></NavLink>
-            <h1>The Launch Spot</h1>
+            <NavLink  to="/"><img src={LaunchLogo} alt="Launch spot logo"/></NavLink>
+            <p>The Launch Spot</p>
         </div>
     );
 }

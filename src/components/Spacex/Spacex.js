@@ -3,6 +3,8 @@ import axios from 'axios';
 import Navigation from '../UI/Navigation/Navigation';
 import classes from "./Spacex.css";
 
+import { NavLink } from 'react-router-dom';
+
 import spacex1 from '../../assets/images/spacex/spacex1_427x640.jpg';
 import spacex2 from '../../assets/images/spacex/spacex2_427x640.jpg';
 import spacex3 from '../../assets/images/spacex/spacex3_427x640.jpg';

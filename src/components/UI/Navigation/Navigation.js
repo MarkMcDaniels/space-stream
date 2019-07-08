@@ -30,7 +30,7 @@ const navigation = (props) => {
     let items = null;
     let keySlug = "-" + props.navBar;
 
-    // Active link check
+    // Active link check react-router-dom alternative
     let active = false;
     
 
