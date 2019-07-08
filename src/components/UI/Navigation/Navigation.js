@@ -18,7 +18,7 @@ const navigation = (props) => {
             break;
 
         case 'Footer':
-            classList = [classes.Footer];
+            classList = [classes.Footer, classes.Footer_ul];
             break;
 
         default:
@@ -32,14 +32,16 @@ const navigation = (props) => {
 
     // Active link check
     let active = false;
-    if(props.path === '/spacex-schedule'){
-        active = true;
-    }
+    
 
-    items = props.navItems.map(link => (
-        
-        <NavItem key={link[0] + keySlug} link={link[1]} name={link[0]} active={active} />
-    ));
+    items = props.navItems.map(link => {
+        if(props.path === '/spacex-schedule'){
+            active = 'space';
+        } else {
+            active = 'nasa';
+        }
+        return <NavItem key={link[0] + keySlug} link={link[1]} name={link[0]} active={active} navBar={props.navBar} />;
+});
 
     
     list = (

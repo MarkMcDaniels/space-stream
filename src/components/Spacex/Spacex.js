@@ -1,119 +1,78 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 import Navigation from '../UI/Navigation/Navigation';
 import classes from "./Spacex.css";
+
+import spacex1 from '../../assets/images/spacex/spacex1_427x640.jpg';
+import spacex2 from '../../assets/images/spacex/spacex2_427x640.jpg';
+import spacex3 from '../../assets/images/spacex/spacex3_427x640.jpg';
+import spacex4 from '../../assets/images/spacex/spacex4_427x640.jpg';
+import spacex5 from '../../assets/images/spacex/spacex5_427x640.jpg';
+import spacex6 from '../../assets/images/spacex/spacex6_427x640.jpg';
 
 class Spacex extends Component {
 
     state = {
-        launchItems: null
+        launchItems: <p>loading...</p>
     }
-
-
-    sampleData = () => {
-
-        const data = [
-            {
-                "flight_number": 82,
-                'mission_name': 'CRS-18',
-                "launch_date_local": "2019-07-21T19:35:00-04:00",
-                "rocket": {
-                    "rocket_id": "falcon9",
-                    "rocket_name": "Falcon 9",
-                    "rocket_type": "FT",
-                    "first_stage": {
-                      "cores": [
-                        {
-                          "core_serial": "B1056",
-                          "flight": 2,
-                          "block": 5,
-                          "gridfins": null,
-                          "legs": null,
-                          "reused": true,
-                          "land_success": null,
-                          "landing_intent": null,
-                          "landing_type": null,
-                          "landing_vehicle": null
-                        }
-                      ]
-                    }
-                },
-                "launch_site": {
-                    "site_id": "ccafs_slc_40",
-                    "site_name": "CCAFS SLC 40",
-                    "site_name_long": "Cape Canaveral Air Force Station Space Launch Complex 40"
-                    }
-                },
-            
-            {
-                "flight_number": 83,
-                "mission_name": "Amos-17",
-                "launch_date_local": "2019-07-31T20:00:00-04:00",
-                "rocket": {
-                    "rocket_id": "falcon9",
-                    "rocket_name": "Falcon 9",
-                    "rocket_type": "FT",
-                    "first_stage": {
-                      "cores": [
-                        {
-                          "core_serial": null,
-                          "flight": null,
-                          "block": null,
-                          "gridfins": null,
-                          "legs": null,
-                          "reused": null,
-                          "land_success": null,
-                          "landing_intent": null,
-                          "landing_type": null,
-                          "landing_vehicle": null
-                        }
-                      ]
-                    }
-                },
-                "launch_site": {
-                    "site_id": "ksc_lc_39a",
-                    "site_name": "KSC LC 39A",
-                    "site_name_long": "Kennedy Space Center Historic Launch Complex 39A"
-                    }
-            }
-        
-        ];
-
-        return data;
-    }
-
 
     componentDidMount(){
-        const sampleData = this.sampleData();
-
-        const launchItems = sampleData.map((launch, index) => {
-            let launchDate = new Date(launch.launch_date_local);
+        axios.get("https://api.spacexdata.com/v3/launches/upcoming")
+        .then(response => {
+            console.log(response.data);
+            let launchItems = null;
             let classList = [classes.LaunchItem];
+            let itemCount = 0;
 
+            // Creates the Launch item list from spacex api for upcoming flights not by customer nasa
+            launchItems = response.data.map((launch, index) =>{
+                let launchDate = new Date(launch.launch_date_local);
+                const imgs = [spacex1, spacex2, spacex3, spacex4, spacex5, spacex6];
 
-            return (
-            <div key={launch.flight_number} className={classList.join(' ')}>
-                <div className={classes.ImgSize}>
-                    <img  src={require('../../assets/images/spacex/spacex' + (index + 1) + '_427x640.jpg')} alt="SpaceX Rocket" />
-                </div>
-                <div className={classes.Description} >
-                    <p><strong>Flight Number:&nbsp;</strong>{launch.flight_number}</p>
-                    <p><strong>Date:&nbsp;</strong> {launchDate.toDateString() + " " + launchDate.toLocaleTimeString()} </p>
-                    <p><strong>Rocket:&nbsp;</strong> {launch.rocket.rocket_name}</p>
-                    <p><strong>Launch Site:&nbsp;</strong> { launch.launch_site.site_name_long} </p>
-                </div>
+                // Gets a random image from imported image pool imgs. (need a lot more images)
+                let randImg = imgs[Math.floor(Math.random() * imgs.length)];
+               
+                if(launch.rocket.second_stage.payloads[0].customers[0].match(/nasa/i)){
+                    return null;
+                } else {
 
-            </div>
-            );
+                    if(itemCount < 7){
+                        itemCount += 1;
+                        return (
+                            <div key={launch.flight_number} className={classList.join(' ')}>
+                                <div className={classes.ImgSize}>
+                                    <img  src={randImg} alt="SpaceX Rocket" />
+                                </div>
+                                <div className={classes.Description} >
+                                    <p><strong>Customer:&nbsp;</strong>{launch.rocket.second_stage.payloads[0].customers[0]}</p>
+                                    <p><strong>Date:&nbsp;</strong> {launchDate.toDateString() + " " + launchDate.toLocaleTimeString()} </p>
+                                    <p><strong>Rocket:&nbsp;</strong> {launch.rocket.rocket_name}</p>
+                                    <p><strong>Launch Site:&nbsp;</strong> { launch.launch_site.site_name_long} </p>
+
+                                </div>
+                            </div>
+                        );
+                    } else {
+                        return null;
+                    }
+                }
+            });
+            
+
+            this.setState({
+                launchItems: launchItems
+            });
+        })
+        .catch(error => {
+
         });
 
-        this.setState({launchItems: launchItems});
     }
 
     render(){
         
         return(
-            <React.Fragment>
+            <div>
                 <div className={classes.Content }>
                     <p className={classes.Upcoming}>Upcoming:</p>
                     <Navigation navBar="Content" navItems={this.props.navContent} path={this.props.path} />
@@ -121,7 +80,7 @@ class Spacex extends Component {
                 <div className={classes.Layout} >
                     {this.state.launchItems}
                 </div>
-            </React.Fragment>
+            </div>
         );
     }
 }

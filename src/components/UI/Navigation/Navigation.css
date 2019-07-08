@@ -63,10 +63,15 @@
     font-size: 1rem;
     list-style: none;
     display: flex;
+    justify-content: center;
+    width: 90%;
+    align-items: center;
+    align-content: center;
 }
 
-.Footer ul {
+.Footer_ul {
     
+    display: flex;
     
 }
 

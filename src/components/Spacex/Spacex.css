@@ -42,7 +42,7 @@ strong {
     flex-grow: 1;
     margin-left: 2%;
     padding: 4px;
-    overflow: hidden;
+    overflow: auto;
     align-items: flex-start;
     display: flex;
     flex-direction: column;

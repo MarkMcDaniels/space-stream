@@ -18,9 +18,9 @@ class Content extends Component {
                 
                 <Switch>
                     
-                    <Route path='/nasa-schedule' component={Nasa} />
+                    <Route path='/nasa-schedule' render={(props) => <Nasa {...this.props} />} />
                     <Route path="/spacex-schedule" render={(props) => <Spacex {...this.props} path={'/spacex-schedule'} />}  />
-                    <Route path='/' component={Nasa} />
+                    <Route path='/' render={(props) => <Nasa {...this.props} />} />
 
                 </Switch>
                 

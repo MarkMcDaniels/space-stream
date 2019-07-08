@@ -2,11 +2,16 @@
     width: 100%;
     display: flex;
     color: black;
-    flex-flow: column;
     justify-content: center;
     align-content: center;
     align-items: center;
-
+    margin-bottom: 20px;
+    color: silver;
+    text-shadow:
+		-1px -1px 0 lightskyblue,
+		1px -1px 0 lightskyblue,
+		-1px 1px 0 lightskyblue,
+		1px 1px 0 lightskyblue;
 }
 
 .Header ul {
@@ -22,4 +27,8 @@
 .Header a {
     text-decoration: none;
     cursor: pointer;
+}
+
+.Header img {
+    width: 10%;
 }

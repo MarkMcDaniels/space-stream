@@ -30,6 +30,7 @@ class Layout extends Component {
                 <Header  />
                 <Content navContent={this.state.navContent} hourConverter={this.state.hourConverter} />
                 <Footer navItems={this.state.navFooter} />
+                
             </div>
         );
     } 

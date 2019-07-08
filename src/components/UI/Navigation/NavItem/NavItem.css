@@ -10,3 +10,15 @@
 .Inactive {
     border: none;
 }
+
+.Item img {
+    width: 60px;
+
+
+}
+
+.Footer {
+    display: flex;
+    margin: 10px;
+}
+
