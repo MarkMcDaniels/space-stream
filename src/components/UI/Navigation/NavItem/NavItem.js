@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
 
 import classes from './NavItem.css';
 
@@ -16,14 +17,14 @@ const navItem = (props) => {
             classList.push(classes.Active);
         }
 
-        return <li className={classList.join(" ")}><a href={props.link}>{props.name}</a></li>
+        return <li className={classList.join(" ")}><NavLink to={props.link}>{props.name}</NavLink></li>
     } else {
         // Manages the footer navBar
         classList.push(classes.Footer);
         switch (props.name){
 
             case 'home':
-                return <li className={classList.join(" ")}><a href={props.link}><img src={LaunchLogo} alt="Launch Logo"/></a></li>
+                return <li className={classList.join(" ")}><NavLink to="/"><img src={LaunchLogo} alt="Launch Logo"/></NavLink></li>
 
             case 'nasa':
                 return <li className={classList.join(" ")}><a href={props.link}><img src={NasaLogo} alt="Nasa Logo"/></a></li>
